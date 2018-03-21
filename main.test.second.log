@@ -1,0 +1,12 @@
+мар 21, 2018 11:24:25 PM second.HashMap get
+INFO: In GET method, key=0
+мар 21, 2018 11:24:26 PM second.HashMap get
+INFO: GET: in while entry!=null
+мар 21, 2018 11:24:26 PM second.HashMap get
+INFO: GET: keys're equal: 0, return
+мар 21, 2018 11:24:26 PM second.HashMap get
+INFO: In GET method, key=1
+мар 21, 2018 11:24:26 PM second.HashMap get
+INFO: GET: in while entry!=null
+мар 21, 2018 11:24:26 PM second.HashMap get
+INFO: GET: not find entry, return null

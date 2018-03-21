@@ -19,6 +19,10 @@ public class CalculationTest {
     }
     @Test
     public void testArcsin() throws Exception {
+        //minus infinity
+        testPoint(-10.12);
+        testPoint(-123.32342);
+        testPoint(-29885687);
         //first interval
         testPoint(-0.99);
         testPoint(-0.74);
@@ -35,6 +39,10 @@ public class CalculationTest {
         testPoint(0.7);
         testPoint(0.81);
         testPoint(0.98);
+        //minus infinity
+        testPoint(+124333.2);
+        testPoint(26582.954);
+        testPoint(1.2323);
         //test extra points
         testPoint(-1);
         testPoint(-0.5);
