@@ -8,7 +8,7 @@ import java.util.logging.SimpleFormatter;
 
 public class HashMap {
 
-    private final static int TABLE_SIZE = 29;
+    private final static int TABLE_SIZE = 3;
     private final static Logger log=Logger.getLogger("java.test.log");
     FileHandler fh;
     public HashEntry[] table;
@@ -28,8 +28,10 @@ public class HashMap {
     public String get(int key) {
         log.log(Level.INFO,"In GET method, key="+key);
         int hash = (key % TABLE_SIZE);
-        while(table[hash]!=null){
-            log.log(Level.INFO,"GET: in while entry!=null");
+        int counter=0;
+        while(table[hash]!=null&&counter<TABLE_SIZE){
+            log.log(Level.INFO,"GET: in while, cur key="+table[hash].getKey());
+            ++counter;
             if(table[hash].getKey()==key) {
                 log.log(Level.INFO,"GET: keys're equal: "+key+", return");
                 return table[hash].getValue();
@@ -56,11 +58,21 @@ public class HashMap {
     }
 
     public void insert(int key, String value) {
+        log.log(Level.INFO,"In INSERT method,key="+key+" value="+value);
         int hash = (key % TABLE_SIZE);
-        while(table[hash]!=null&&table[hash]!=DeletedEntry.getUniqueDeletedEntry()){
+        int counter=0;
+        while(table[hash]!=null&&table[hash]!=DeletedEntry.getUniqueDeletedEntry()&&counter<TABLE_SIZE){
+            ++counter;
+            log.log(Level.INFO,"INSERT: in while, cur key="+table[hash].getKey());
             hash=(hash+1)%TABLE_SIZE;
         }
+        if(counter==TABLE_SIZE){
+            log.log(Level.INFO,"INSERT: can't insert ("+key+","+value+"), table's full");
+            return;
+        }
+        log.log(Level.INFO,"INSERT: inserting ("+key+","+value+")");
         table[hash]=new HashEntry(key,value);
+        return;
 /*        int indexOfDeletedEntry = -1;
         while (hash != initialHash
                 && (table[hash] == DeletedEntry.getUniqueDeletedEntry() || table[hash] != null

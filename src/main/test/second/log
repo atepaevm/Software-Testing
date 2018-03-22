@@ -1,12 +1,22 @@
-мар 21, 2018 11:30:44 PM second.HashMap get
-INFO: In GET method, key=0
-мар 21, 2018 11:30:44 PM second.HashMap get
-INFO: GET: in while entry!=null
-мар 21, 2018 11:30:44 PM second.HashMap get
-INFO: GET: keys're equal: 0, return
-мар 21, 2018 11:30:44 PM second.HashMap get
-INFO: In GET method, key=1
-мар 21, 2018 11:30:44 PM second.HashMap get
-INFO: GET: in while entry!=null
-мар 21, 2018 11:30:44 PM second.HashMap get
-INFO: GET: not find entry, return null
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: In INSERT method,key=0 value=0
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: INSERT: inserting (0,0)
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: In INSERT method,key=1 value=1
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: INSERT: inserting (1,1)
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: In INSERT method,key=2 value=2
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: INSERT: inserting (2,2)
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: In INSERT method,key=3 value=3
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: INSERT: in while, cur key=0
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: INSERT: in while, cur key=1
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: INSERT: in while, cur key=2
+мар 22, 2018 1:28:55 PM second.HashMap insert
+INFO: INSERT: can't insert (3,3), table's full
