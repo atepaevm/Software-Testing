@@ -12,6 +12,15 @@ public class HashMap {
     private final static Logger log=Logger.getLogger("java.test.log");
     FileHandler fh;
     public HashEntry[] table;
+    public int hash(String s){
+        int hash=0;
+        for(int i=s.length()-1;i>=0;--i){
+            char c=s.charAt(i);
+            hash<<=4;
+            hash+=c;
+        }
+        return hash;
+    }
     public HashMap() {
         String path="src\\main\\test\\second\\log";
         try {
@@ -25,9 +34,13 @@ public class HashMap {
         for (int i = 0; i < TABLE_SIZE; i++)
             table[i] = null;
     }
-    public String get(int key) {
+    public HashEntry[] getTable(){
+        return this.table;
+    }
+    public String get(String key) {
         log.log(Level.INFO,"In GET method, key="+key);
-        int hash = (key % TABLE_SIZE);
+        //int hash = (key % TABLE_SIZE);
+        int hash=this.hash(key)%TABLE_SIZE;
         int counter=0;
         while(table[hash]!=null&&counter<TABLE_SIZE){
             log.log(Level.INFO,"GET: in while, cur key="+table[hash].getKey());
@@ -40,26 +53,12 @@ public class HashMap {
         }
         log.log(Level.INFO,"GET: not find entry, return null");
         return null;
-        /*
-        int hash = (key % TABLE_SIZE);
-        int initialHash = -1;
-        while (hash != initialHash
-                && (table[hash] == DeletedEntry.getUniqueDeletedEntry() || table[hash] != null
-                && table[hash].getKey() != key)) {
-            if (initialHash == -1)
-                initialHash = hash;
-            hash = (hash + 1) % TABLE_SIZE;
-        }
-        if (table[hash] == null || hash == initialHash)
-            return null;
-        else
-            return table[hash].getValue();
-            */
     }
 
-    public void insert(int key, String value) {
+    public void insert(String key, String value) {
         log.log(Level.INFO,"In INSERT method,key="+key+" value="+value);
-        int hash = (key % TABLE_SIZE);
+        //int hash = (key % TABLE_SIZE);
+        int hash=this.hash(key)%TABLE_SIZE;
         int counter=0;
         while(table[hash]!=null&&table[hash]!=DeletedEntry.getUniqueDeletedEntry()&&counter<TABLE_SIZE){
             ++counter;
@@ -73,60 +72,34 @@ public class HashMap {
         log.log(Level.INFO,"INSERT: inserting ("+key+","+value+")");
         table[hash]=new HashEntry(key,value);
         return;
-/*        int indexOfDeletedEntry = -1;
-        while (hash != initialHash
-                && (table[hash] == DeletedEntry.getUniqueDeletedEntry() || table[hash] != null
-                && table[hash].getKey() != key)) {
-            if (initialHash == -1)
-                initialHash = hash;
-            if (table[hash] == DeletedEntry.getUniqueDeletedEntry())
-                indexOfDeletedEntry = hash;
-            hash = (hash + 1) % TABLE_SIZE;
-        }
-        if ((table[hash] == null || hash == initialHash)
-                && indexOfDeletedEntry != -1)
-            table[indexOfDeletedEntry] = new HashEntry(key, value);
-        else if (initialHash != hash)
-            if (table[hash] != DeletedEntry.getUniqueDeletedEntry()
-                    && table[hash] != null && table[hash].getKey() == key)
-                table[hash].setValue(value);
-            else
-                table[hash] = new HashEntry(key, value);
-                */
     }
 
-    public void remove(int key) {
-        int hash = (key % TABLE_SIZE);
+    public void remove(String key) {
+        //int hash = (key % TABLE_SIZE);
+        int hash=this.hash(key)%TABLE_SIZE;
         int counter=0;
+        log.log(Level.INFO,"In REMOVE method,key="+key);
         while(table[hash]!=null&&counter<TABLE_SIZE){
             //if node found
+            log.log(Level.INFO,"REMOVE: in while, cur key="+table[hash].getKey());
             if(table[hash].getKey()==key){
+                log.log(Level.INFO,"REMOVE: deleting entry with key="+table[hash].getKey());
                 table[hash]=DeletedEntry.getUniqueDeletedEntry();
+                return;
             }
             ++counter;
             hash=(hash+1)%TABLE_SIZE;
         }
-        /*
-        int initialHash = -1;
-        while (hash != initialHash
-                && (table[hash] == DeletedEntry.getUniqueDeletedEntry() || table[hash] != null
-                && table[hash].getKey() != key)) {
-            if (initialHash == -1)
-                initialHash = hash;
-            hash = (hash + 1) % TABLE_SIZE;
-        }
-        if (hash != initialHash && table[hash] != null)
-            table[hash] = DeletedEntry.getUniqueDeletedEntry();
-            */
+        log.log(Level.INFO,"REMOVE: entry doesn't exist, return");
     }
     public void showTable(){
         for(int i=0;i<table.length;++i){
             if(table[i]==null)
-                System.out.println("null");
+                System.out.println(i+") null");
             else if(table[i]==DeletedEntry.getUniqueDeletedEntry())
-                System.out.println("del");
+                System.out.println(i+") del");
             else
-                System.out.println(table[i].getKey()+", "+table[i].getValue());
+                System.out.println(i+") "+table[i].getKey()+", "+table[i].getValue());
         }
     }
 }
