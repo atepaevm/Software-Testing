@@ -48,11 +48,11 @@ public class HashMapTest {
         ++testNumber;
 
         String entry=map.get("123");//0-1-2-4-0
-        assertEquals("TEST 4, expected: 0, actual: "+entry,"0",entry);
+        assertEquals("TEST"+testNumber+", expected: 0, actual: "+entry,"0",entry);
         ++testNumber;
 
         entry=map.get("NONE");//0-1-2-3-0
-        assertEquals("Test 5, expected: null, actual: "+entry,null,entry);
+        assertEquals("Test "+testNumber+", expected: null, actual: "+entry,null,entry);
         ++testNumber;
 
         for(int i=0;i<standard.length;++i)
@@ -69,7 +69,7 @@ public class HashMapTest {
         for(int i=0;i<standard.length;++i)
             assertEquals(getMessage("GET",testNumber,i,map.getTable()[i],standard[i]),map.getTable()[i],standard[i]);
         ++testNumber;
-        map.showTable();
+        //map.showTable();
     }
 
 }

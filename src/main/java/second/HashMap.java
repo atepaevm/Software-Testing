@@ -22,7 +22,7 @@ public class HashMap {
         return hash;
     }
     public HashMap() {
-        String path="src\\main\\test\\second\\log";
+        String path="src\\test\\java\\second\\log";
         try {
             fh=new FileHandler(path);
         } catch (IOException e) {

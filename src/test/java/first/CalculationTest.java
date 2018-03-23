@@ -39,7 +39,7 @@ public class CalculationTest {
         testPoint(0.7);
         testPoint(0.81);
         testPoint(0.98);
-        //minus infinity
+        //plus infinity
         testPoint(+124333.2);
         testPoint(26582.954);
         testPoint(1.2323);
