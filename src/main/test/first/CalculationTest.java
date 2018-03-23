@@ -18,39 +18,53 @@ public class CalculationTest {
         assertEquals(Math.asin(X+deltaX),calc.arcsin(X+deltaX),deltaY);
     }
     @Test
-    public void testArcsin() throws Exception {
-        //minus infinity
+    public void testFirst() throws Exception{
+        //(-oo;-1)
         testPoint(-10.12);
         testPoint(-123.32342);
         testPoint(-29885687);
-        //first interval
+    }
+    @Test
+    public void testSecond() throws Exception{
+        //(-1;-0.5)
         testPoint(-0.99);
         testPoint(-0.74);
         testPoint(-0.58);
-        //second interval
+    }
+    @Test
+    public void testThird() throws Exception{
+        //(-0.5;0)
         testPoint(-0.43);
         testPoint(-0.25);
         testPoint(-0.05);
-        //third interval
+    }
+    @Test
+    public void testFourth() throws Exception{
+        //(0;0.5)
         testPoint(0.14);
-        testPoint(-0.27);
-        testPoint(-0.47);
-        //fourth interval
+        testPoint(0.27);
+        testPoint(0.47);
+    }
+    @Test
+    public void testFifth() throws Exception{
+        //(0.5;1)
         testPoint(0.7);
         testPoint(0.81);
         testPoint(0.98);
-        //plus infinity
+    }
+    @Test
+    public void testSixth() throws Exception{
+        //(1;+oo)
         testPoint(+124333.2);
         testPoint(26582.954);
         testPoint(1.2323);
-        //test extra points
+    }
+    @Test
+    public void testExtraPoints() throws Exception {
         testPoint(-1);
         testPoint(-0.5);
         testPoint(0);
         testPoint(0.5);
         testPoint(1);
-
-
     }
-
 }

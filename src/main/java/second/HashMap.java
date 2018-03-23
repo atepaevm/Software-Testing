@@ -7,9 +7,8 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class HashMap {
-
     private final static int TABLE_SIZE = 3;
-    private final static Logger log=Logger.getLogger("java.test.log");
+    public Logger log=null;
     FileHandler fh;
     public HashEntry[] table;
     public int hash(String s){
@@ -21,8 +20,22 @@ public class HashMap {
         }
         return hash;
     }
+    public HashMap(String path){
+        this.log=Logger.getLogger(path);
+        try {
+            fh=new FileHandler(path);
+        } catch (IOException e) {
+            log.log(Level.WARNING, "CONSTRUCTOR: can't find file: "+path);
+        }
+        log.addHandler(fh);
+        fh.setFormatter(new SimpleFormatter());
+        table = new HashEntry[TABLE_SIZE];
+        for (int i = 0; i < TABLE_SIZE; i++)
+            table[i] = null;
+    }
     public HashMap() {
-        String path="src\\test\\java\\second\\log";
+        this.log=Logger.getLogger("java.test.log");
+        String path="src\\main\\test\\second\\log";
         try {
             fh=new FileHandler(path);
         } catch (IOException e) {

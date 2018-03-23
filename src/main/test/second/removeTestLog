@@ -1,0 +1,30 @@
+мар 23, 2018 11:00:30 PM second.HashMap insert
+INFO: In INSERT method,key=123 value=0
+мар 23, 2018 11:00:31 PM second.HashMap insert
+INFO: INSERT: inserting (123,0)
+мар 23, 2018 11:00:31 PM second.HashMap insert
+INFO: In INSERT method,key=584 value=1
+мар 23, 2018 11:00:31 PM second.HashMap insert
+INFO: INSERT: inserting (584,1)
+мар 23, 2018 11:00:31 PM second.HashMap insert
+INFO: In INSERT method,key=456 value=2
+мар 23, 2018 11:00:31 PM second.HashMap insert
+INFO: INSERT: in while, cur key=123
+мар 23, 2018 11:00:31 PM second.HashMap insert
+INFO: INSERT: inserting (456,2)
+мар 23, 2018 11:00:31 PM second.HashMap remove
+INFO: In REMOVE method,key=123
+мар 23, 2018 11:00:31 PM second.HashMap remove
+INFO: REMOVE: in while, cur key=123
+мар 23, 2018 11:00:31 PM second.HashMap remove
+INFO: REMOVE: deleting entry with key=123
+мар 23, 2018 11:00:31 PM second.HashMap remove
+INFO: In REMOVE method,key=666
+мар 23, 2018 11:00:31 PM second.HashMap remove
+INFO: REMOVE: in while, cur key=DELETED
+мар 23, 2018 11:00:31 PM second.HashMap remove
+INFO: REMOVE: in while, cur key=456
+мар 23, 2018 11:00:31 PM second.HashMap remove
+INFO: REMOVE: in while, cur key=584
+мар 23, 2018 11:00:31 PM second.HashMap remove
+INFO: REMOVE: entry doesn't exist, return
