@@ -27,6 +27,7 @@ public class DolphinsMessageTest {
     @Test
     public void messageMeaningCheck(){
         assertSame(this.text, this.message1.getMessageMeaning(true));
+        assertEquals(null, this.message1.getMessageMeaning(false));
     }
 
     @Test

@@ -55,6 +55,5 @@ public class MainTest {
     public void humansMessageCheck(){
         assertEquals(Main.humans.canUnderstandMessage, false);
         assertEquals(Main.humans.recievedMessage, null);
-
     }
 }
