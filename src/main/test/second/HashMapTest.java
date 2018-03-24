@@ -89,12 +89,12 @@ public class HashMapTest {
         removeMap.insert("584","1");//0-5-6-8-0
         removeMap.insert("456","2");//0-5-6-8-0
         removeMap.remove("123");//0-9-10-12-0
-        HashEntry[] standard=new HashEntry[]{new HashEntry("DELETED","DELETED"),new HashEntry("456","2"),new HashEntry("584","1")};
+        HashEntry[] standard=new HashEntry[]{DeletedEntry.getUniqueDeletedEntry(),new HashEntry("456","2"),new HashEntry("584","1")};
         for(int i=0;i<standard.length;++i)
             assertEquals(getMessage("REMOVE",testNumber,i,removeMap.getTable()[i],standard[i]),removeMap.getTable()[i],standard[i]);
         ++testNumber;
         removeMap.remove("666");//0-9-10-11-0
-        standard=new HashEntry[]{new HashEntry("DELETED","DELETED"),new HashEntry("456","2"),new HashEntry("584","1")};
+        standard=new HashEntry[]{DeletedEntry.getUniqueDeletedEntry(),new HashEntry("456","2"),new HashEntry("584","1")};
         for(int i=0;i<standard.length;++i)
             assertEquals(getMessage("REMOVE",testNumber,i,removeMap.getTable()[i],standard[i]),removeMap.getTable()[i],standard[i]);
 
