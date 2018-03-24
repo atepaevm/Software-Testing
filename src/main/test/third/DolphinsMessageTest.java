@@ -21,18 +21,25 @@ public class DolphinsMessageTest {
 
         this.message1 = new DolphinsMessage(flip1, this.text);
         this.message2 = new DolphinsMessage(flip2, this.text);
-
     }
 
     @Test
-    public void messageMeaningCheck(){
+    public void messageTrueMeaningCheck() {
         assertSame(this.text, this.message1.getMessageMeaning(true));
+    }
+
+    @Test
+    public void messageFalseMeaningCheck() {
         assertEquals(null, this.message1.getMessageMeaning(false));
     }
 
     @Test
-    public void flipSameObjectCheck(){
+    public void flip1SameObjectCheck() {
         assertSame(this.message1.flip, flip1);
+    }
+
+    @Test
+    public void flip2SameObjectCheck() {
         assertSame(this.message2.flip, flip2);
     }
 

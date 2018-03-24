@@ -14,9 +14,6 @@ public class MainTest {
     private WhistleSound sound;
     private AmusmentLevel level;
 
-
-
-
     @Before
     public void initialize(){
         this.style = FlipStyle.Double;
@@ -30,7 +27,7 @@ public class MainTest {
     }
 
     @Test
-    public void mainFlipCheck(){
+    public void mainFlipCheck() {
         assertEquals(Main.flip.style, this.style);
         assertEquals(Main.flip.direction, this.direction);
         assertEquals(Main.flip.obstacle, this.item);
@@ -38,22 +35,42 @@ public class MainTest {
     }
 
     @Test
-    public void mainDolphinsMessageCheck(){
+    public void messageCheckFlip() {
         assertSame(Main.message.flip, Main.flip);
+    }
+
+    @Test
+    public void checkLastMessage() {
         assertSame(Main.message, Main.dolphins.getLastMessage());
+    }
+
+    @Test
+    public void checkLastMessageMeaning() {
         assertEquals(Main.message.getMessageMeaning(true), this.message);
     }
 
     @Test
-    public void mainMessageDelivered(){
+    public void mainMessageSoundCheck() {
         assertEquals(Main.message.sound, this.sound);
+    }
+
+    @Test
+    public void mainMessageAmusementCheck() {
         assertEquals(Main.message.actionAmusement, level);
+    }
+
+    @Test
+    public void mainFlipStateCheck() {
         assertEquals(Main.flip.getFlipState(), true);
     }
 
     @Test
-    public void humansMessageCheck(){
+    public void humansMessageCantUnderstandCheck() {
         assertEquals(Main.humans.canUnderstandMessage, false);
+    }
+
+    @Test
+    public void humansMessageRecievedMessageNotPresent() {
         assertEquals(Main.humans.recievedMessage, null);
     }
 }

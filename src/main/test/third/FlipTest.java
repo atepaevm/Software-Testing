@@ -23,22 +23,19 @@ public class FlipTest {
     }
 
     @Test
-    public void initialValuesCheck(){
-        assertEquals(flip.direction, direction);
-        assertEquals(flip.obstacle, item);
-        assertEquals(flip.style, style);
+    public void checkInitialState(){
+        assertEquals(this.flip.getFlipState(), false);
     }
 
     @Test
-    public void doFlipCheck(){
-        assertEquals(this.flip.getFlipState(), false);
+    public void checkStateFlipped(){
         this.flip.doFlip();
         assertEquals(this.flip.getFlipState(), true);
+    }
+
+    @Test
+    public void checkResetedState(){
         this.flip.resetFlipState();
         assertEquals(this.flip.getFlipState(), false);
-
-        this.flip.style = style2;
-        this.flip.doFlip();
-        assertEquals(this.flip.getFlipState(), true);
     }
 }
