@@ -27,14 +27,6 @@ public class MainTest {
     }
 
     @Test
-    public void mainFlipCheck() {
-        assertEquals(Main.flip.style, this.style);
-        assertEquals(Main.flip.direction, this.direction);
-        assertEquals(Main.flip.obstacle, this.item);
-
-    }
-
-    @Test
     public void messageCheckFlip() {
         assertSame(Main.message.flip, Main.flip);
     }

@@ -42,12 +42,4 @@ public class DolphinsMessageTest {
     public void flip2SameObjectCheck() {
         assertSame(this.message2.flip, flip2);
     }
-
-    @Test
-    public void deliverMessageCheck(){
-        this.message1.deliverMessage(sound, level);
-        assertEquals(this.message1.sound, sound);
-        assertEquals(this.message1.actionAmusement, level);
-        assertEquals(flip1.getFlipState(), true);
-    }
 }
