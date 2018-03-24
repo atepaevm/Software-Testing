@@ -28,6 +28,16 @@ public class FlipTest {
     }
 
     @Test
+    public void checkInitialDirection(){
+        assertEquals(flip.direction, direction);
+    }
+
+    @Test
+    public void checkInitialItem(){
+        assertEquals(flip.obstacle, item);
+    }
+
+    @Test
     public void checkStateFlipped(){
         this.flip.doFlip();
         assertEquals(this.flip.getFlipState(), true);
